@@ -1,0 +1,423 @@
+BANK:
+Table Creation:
+SQL> create table Bank
+2 (
+3	name varchar2(10),
+4	address varchar2(50),
+5	code varchar2(10) primary key
+6	);
+
+Table created.
+Insertion :
+SQL> insert into bank values('&name','&address','&code'); Enter value for name: SBI
+Enter value for address: Tilak Road ,Tirupati Enter value for code: 15896347
+old  1: insert into bank values('&name','&address','&code')
+new 1: insert into bank values('SBI','Tilak Road ,Tirupati','15896347') 1 row created.
+
+SQL> select * from bank;	
+NAME	ADDRESS	CODE
+SBI	Tilak Road ,Tirupati	15896347
+Union Bank Sainath Nagar,Rangampeta	78942635
+HDFC Bank AIR bypass,Tirupati	89641237
+ICICI	SN colony,Tiruchanoor	57896321
+AXIS bank Korlagunta,Tirupati	38965412
+BRANCHES:	
+Table Creation:	
+SQL> create table Branches
+2 (
+3	branchname varchar2(30),
+4	branchid varchar2(10) primary key,
+5	address varchar2(30)
+6	);	
+
+Table created.
+
+Insertion :
+ 
+SQL> insert into branches values('&branchname','&branchid','&address'); Enter value for branchname: SBI korlagunta
+Enter value for branchid: 78541236
+Enter value for address: korlagunta,Tirupati
+old  1: insert into branches values('&branchname','&branchid','&address')
+new 1: insert into branches values('SBI korlagunta ','78541236','korlagunta,Tirupati') 1 row created.
+SQL> select * from branches;
+
+BRANCHNAME	BRANCHID  ADDRESS
+
+SBI korlagunta	78541236	 
+korlagunta,Tirupati
+Union bank-1	84569312	Tirupati rural
+HDFC Tiruchanoor	45896321	SN colony,Tiruchanoor
+AXIS Bank-1	68954123	Leela mahal,Tirupati
+ICICI Tilak road	63987452	Tilak road,Tirupati
+
+5 rows selected.
+EMPLOYEES:
+Table Creation:
+SQL> create table Employees
+2 (
+3 empid varchar2(5) primary key,
+4 empname varchar2(10),
+5 designation varchar2(10)
+6 );
+Table created.
+Insertion :
+SQL> insert into employees values('&empid','&empname','&designation'); Enter value for empid: 68974
+Enter value for empname: Ashwin Enter value for designation: Sr.cashier
+old 1: insert into employees values('&empid','&empname','&designation') new 1: insert into employees values('68974','Ashwin','Sr.cashier')
+
+1 row created.
+SQL> select * from employees;
+
+EMPID EMPNAME	DESIGNATION
+
+15321 Ram	Manager
+ 
+45693 Sita	Cashier
+68743 Indu	Accountant
+45896 Rajeev	Attender
+68974 Ashwin	Sr.cashier
+LOANS:
+Table Creation:
+SQL> create table Loans
+2 (
+3 loanid varchar2(10) primary key,
+4 loantype varchar2(10) ,
+5 amount number
+6 );
+
+Table created.
+
+Insertion :
+SQL> insert into loans values('&loanid','&loantype',&amount); Enter value for loanid: E23474
+Enter value for loantype: Edu loan Enter value for amount: 100000
+old 1: insert into loans values('&loanid','&loantype',&amount) new 1: insert into loans values('E23474','Edu loan',100000)
+
+1 row created.
+
+SQL> select * from loans;
+
+LOANID	LOANTYPE	AMOUNT
+
+
+A85693	jewel loan	500000
+A89745	home loan	1000000
+H15896	home loan	1000000
+E23474	edu loan	100000
+J23987	jewel loan	500000
+
+ACCOUNT HOLDERS:
+Table Creation:
+SQL> create table Accountholders
+2 (
+3	name varchar2(15),
+4	accno varchar2(20) primary key,
+5	phoneno varchar2(10),
+6	address varchar2(30),
+ 
+7	acctype varchar2(10),
+8	balance number
+9	);
+
+Table created.
+Insertion :
+SQL> insert into accountholder values('&accno','&name','&phoneno','&address','&accounttype',&balance
+);
+Enter value for accno: 2000335967 Enter value for name: SaiPriya
+Enter value for phoneno: 9875563364
+Enter value for address: 1-72,Sankar colony,Tirupathi Enter value for accounttype: Savings
+Enter value for balance: 50000
+old 1: insert into accountholder values('&accno','&name','&phoneno','&address','&accounttype',&bal new 1: insert into accountholder values('2000335967','SaiPriya','9875563364','1-72,Sankar colony,Tirupathi
+
+1 row created.
+
+SQL> select * from applies;
+ACCNO	NAME	PHONENO	ADDRESS	ACCTYPE  BALANCE
+
+
+2000335967 SaiPriya	9875563364	1-72,Sankar colony,Tirupathi  Savings	50000
+
+2236987456 Harish	8889654131	1-78-2,Mitta street,Tirupati	RD	15000
+2298653144 Aryan	8889632456 123-56,Muthu nagar,Rangampeta Savings 12500
+
+2296543415 Lakshana	6303403804 22/1A ,Ashok nagar,Mundlapudi RD	45000
+
+2369874523 Varsha	8885544123 1-81/7,Raghavendra nagar,Pudi	RD	13800
+
+TRANSACTIONS:
+Table Creation:
+SQL> create table transactions
+2 (
+3	transactionid varchar2(20) primary key,
+4	transactiontype varchar2(10),
+5	amount number,
+6	time date
+7	);
+ 
+Table created.
+Insertion :
+
+SQL> insert into transaction values('&transactionid','&transactiontype',&amount,'&date'); Enter value for transactionid: t768596thg56
+Enter value for transactiontype: netbanking Enter value for amount: 5000
+Enter value for date: 11-apr-2023
+old 1: insert into transaction values('&transactionid','&transactiontype',&amount,'&date') new 1: insert into transaction values('t768596thg56','netbanking',5000,'11-apr-2023')
+
+1 row created.
+
+SQL> select * from transaction;
+
+TRANSACTIONID	TRANSACTIONTYPE	AMOUNT TIME
+
+
+t58964jhg4	creditcard	10000 15-MAY-23
+rh45896321jk	netbanking	15000 18-APR-23
+t768596thg56	netbanking	5000 11-APR-23
+r8956412gfht	upi	8000 13-MAY-23
+h5896fd789	debitcard	4500 14-MAR-23
+
+MANAGES:
+Table Creation:
+SQL> create table manages
+2  (
+3	code varchar2(10),
+4	branchid varchar2(10),
+5	primary key(code,branchid),
+6	foreign key(code) references bank(code),
+7	foreign key(branchid) references branches(branchid)
+8	);
+
+Table created.
+Insertion :
+SQL> insert into manages values(&code,&branchid); Enter value for code: 15896347
+Enter value for branchid: 78541236
+old 1: insert into manages values(&code,&branchid) new 1: insert into manages values(15896347,78541236)
+ 
+1 row created.
+
+SQL> select * from manages;
+
+CODE	BRANCHID
+15896347	78541236
+38965412	63987452
+57896321	68954123
+78942635	84569312
+89641237	45896321
+
+WORKS_IN:
+Table Creation:
+SQL> create table works_in
+2 (
+3	empid varchar2(5),
+4	branchid varchar2(10),
+5	primary key(empid,branchid),
+6	foreign key(empid) references employees(empid),
+7	foreign key(branchid) references branches(branchid)
+8	);
+
+Table created.
+Insertion :
+SQL> insert into works_in values('&empid','&branchid'); Enter value for empid: 15321
+Enter value for branchid: 78541236
+old 1: insert into works_in values('&empid','&branchid') new 1: insert into works_in values('15321','78541236')
+
+1 row created.
+SQL> select * from works_in; EMPID BRANCHID
+
+15321 78541236
+45693 84569312
+45896 68954123
+68743 45896321
+68974 63987452
+ 
+OFFERS:
+Table Creation:
+SQL> create table offers
+2  (
+3	branchid varchar2(10),
+4	loanid varchar2(10),
+5	accno varchar2(20) ,
+6	primary key(branchid,loanid,accno),
+7	foreign key(branchid) references branches(branchid),
+8	foreign key(loanid) references loans(loanid),
+9	foreign key(accno) references accountholder(accno)
+10	);
+
+Table created.
+Insertion :
+
+SQL> insert into applies values('&date','&loanid','&accno'); Enter value for date: 11-apr-2021
+Enter value for loanid: A85693 Enter value for accno: 2000335967
+old  1: insert into applies values('&date','&loanid','&accno')
+new 1: insert into applies values('11-apr-2021','A85693','2000335967') 1 row created.
+SQL> select * from offers;
+
+BRANCHID  LOANID	ACCNO
+
+
+45896321	E23474	2296543415
+63987452	J23987	2236987456
+68954123	H15896	2369874523
+78541236	A85693	2000335967
+84569312	A89745	2298653144
+
+
+
+
+APPLIES :
+Table Creation:
+
+SQL>  create table applies
+2  (
+ 
+3	applydate date,
+4	loanid varchar2(10),
+5	accno varchar2(20) ,
+6	primary key(loanid,accno),
+7	foreign key(loanid) references loans(loanid),
+8	foreign key(accno) references accountholder(accno)
+9	);
+
+Table created.
+Insertion :
+SQL> insert into applies values('&date','&loanid','&accno'); Enter value for date: 11-apr-2021
+Enter value for loanid: A85693 Enter value for accno: 2000335967
+old  1: insert into applies values('&date','&loanid','&accno')
+new  1: insert into applies values('11-apr-2021','A85693','2000335967')
+
+1 row created.
+SQL> select * from applies;
+
+APPLYDATE LOANID	ACCNO
+
+
+11-APR-21 A85693	2000335967
+10-MAR-20 A89745	2298653144
+01-FEB-19 H15896	2369874523
+01-SEP-22 E23474	2296543415
+01-AUG-18 J23987	2236987456
+MAKES:
+Table Creation:	
+
+SQL> create table makes
+2 (
+3	accno varchar2(10),
+4	transactionid varchar2(20),
+5	primary key(accno,transactionid),
+6	foreign key(accno) references accountholder(accno),
+7	foreign key(transactionid) references transaction(transactionid)
+8	);
+
+Table created.
+Insertion :
+SQL> insert into makes values('&accno','&transactionid');
+ 
+Enter value for accno: 2000335967
+Enter value for transactionid: t768596thg56
+old 1: insert into makes values('&accno','&transactionid') new 1: insert into makes values('2000335967','t768596thg56')
+
+1 row created.
+SQL> select * from makes; ACCNO	TRANSACTIONID
+
+2000335967 t768596thg56
+2236987456 rh45896321jk
+2296543415 r8956412gfht
+2298653144 t768596thg56
+2369874523 h5896fd789
+
+QUERIES:
+1.	Write a query that displays accno and name of the accountholder how have applied home loan. SQL> select A.accno,A.name from accountholder A,applies P,loans L where A.accno=P.accno and P.loanid=L.loanid and L.loantype=’home loan’;
+
+Output:
+ACCNO	NAME
+
+2298653144 Aryan
+2369874523 Varsha
+
+2.	Write a query that displays accno,name and balance who have balance more than 15000.
+SQL> select accno,name ,balance from accountholder where balance>15000;
+
+ACCNO	NAME	BALANCE
+
+2000335967 SaiPriya	50000
+2296543415 Lakshana	45000
+
+3.	Write a query that displays name and balance of the accountholders who have done netbanking
+transaction.
+SQL> select A.name,A.balance from accountholder A,transaction T,makes M where A.accno=M.accno and T.
+transactionid=M.transactionid and T.transactiontype='netbanking';
+
+NAME	BALANCE
+ 
+ 
+SaiPriya	50000
+Harish	15000
+Aryan	12500
+4.	Write a query that displays names of the accountholders who have not netbanking.
+SQL> select A.name from accountholder A where A.accno not in
+2 (
+3	select M.accno from makes M where M.transactionid in
+4	(
+5	select T.transactionid from transaction T where T.transactiontype='netbanking'));
+
+NAME
+
+Lakshana Varsha
+5.	Write a query that displays details of all accountholders who have balance more than accountholder called ‘harish’.
+SQL> select * from accountholder A where A.balance>All
+2 (
+3	select A.balance from accountholder A where A.name='Harish');
+
+ACCNO	NAME	PHONENO	ADDRESS	ACCTYPE	BALANCE
+
+
+
+2000335967 SaiPriya	9875563364 1-72,Sankar colony,Tirupathi	Savings	50000
+
+2296543415 Lakshana	6303403804 22/1A ,Ashok nagar,Mundlapudi RD	45000
+
+6.	Write a query to find the total no. of accounts.
+SQL> select count(*) from accountholder;
+
+COUNT(*)
+
+5
+7.	Write a query that displays the total loan amount of all loans.
+SQL> select sum(amount) from loans;
+
+SUM(AMOUNT)
+
+3100000
+
+8.	Write a query that display Empid,empname of the employees who works in from given relations.
+ 
+SQL> select E.empid,E.empname from employees E inner join works_in W on E.empid=W.empid;
+
+EMPID EMPNAME
+
+15321 Ram
+45693 Sita
+45896 Rajeev
+68743 Indu
+68974 Ashwin
+9.	Write a query to create a view of accno,name and balance of accountholders.
+SQL> create view accview as
+2 select accno,name,balance from accountholder; View created.
+SQL> select * from accview;
+
+ACCNO	NAME	BALANCE
+
+ 	 
+2000335967 SaiPriya	50000
+2236987456 Harish	15000
+2298653144 Aryan	2500
+2296543415 Lakshana	45000
+2369874523 Varsha	13800
+10.	Display the name and balance of accountholders .sort by balance in descending order.
+SQL> select balance,name from accountholder order by balance desc;
+
+BALANCE NAME
+
+50000 SaiPriya
+45000 Lakshana
+15000 Harish
+13800 Varsha
+12500 Aryan
